@@ -10,6 +10,43 @@
 #include <stdlib.h>
 #include <time.h>
 
+/*
+docker
+
+https://iceoryx.io/v2.0.5/examples/icedocker/
+https://medium.com/better-programming/dockerizing-multiple-services-inside-a-single-container-96cdff286cef
+https://www.freecodecamp.org/news/a-beginners-guide-to-docker-how-to-create-a-client-server-side-with-docker-compose-12c8cf0ae0aa/
+https://www.geeksforgeeks.org/software-engineering/docker-compose-tool-to-run-multi-container-applications/
+https://docs.docker.com/engine/containers/multi-service_container/
+https://www.cyberciti.biz/faq/how-to-run-command-or-code-in-parallel-in-bash-shell-under-linux-or-unix/
+https://www.tutorialspoint.com/processing-linux-commands-in-parallel
+https://markus-x-buchholz.medium.com/docker-container-networking-c-client-server-app-e9750f003f8
+https://www.baeldung.com/ops/docker-run-multiple-commands
+https://stackoverflow.com/questions/54121031/multiple-commands-on-docker-entrypoint
+https://taiwodevlab.hashnode.dev/running-multiple-commands-on-docker-container-start-cl3gc8etn04k4mynvg4ub3wss
+https://jhooq.com/docker-error-executable-file/
+https://www.cloudbees.com/blog/understanding-dockers-cmd-and-entrypoint-instructions
+https://www.docker.com/blog/docker-best-practices-choosing-between-run-cmd-and-entrypoint/
+https://stackoverflow.com/questions/52856059/how-to-launch-and-keep-a-background-process-inside-a-docker-container
+https://www.baeldung.com/linux/kill-background-process
+
+
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y ca-certificates curl gnupg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker $USER
+sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d'"' -f4)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+sudo systemctl enable docker
+
+sudo docker build . -t cs:1
+sudo docker run --rm -it cs:1
+*/
+
 #define PORT 5555
 
 int main()
